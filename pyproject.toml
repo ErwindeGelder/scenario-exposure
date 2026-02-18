@@ -1,0 +1,45 @@
+[project]
+name = "scenario-exposure"
+version = "0.1.0"
+description = "Calculate probability density"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "COM812", # Conflicts with formatter
+  "D203",   # Conflicts with D211
+  "D213",   # Conflicts with D212
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+    "S101", # Use of `assert` detected
+    "D101","D102","D103", # Missing docstring in public function
+]
+"**/__init__.py" = [
+    "F401", # Imported but unused
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "pytest-cov",
+    "mypy",
+    "pyright",
+    "typeguard",
+]
