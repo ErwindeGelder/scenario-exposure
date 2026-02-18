@@ -1,10 +1,13 @@
 [project]
 name = "scenario-exposure"
 version = "0.1.0"
-description = "Calculate probability density"
+description = "Calculate probability density (for scenarios)."
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "numpy",
+    "scipy",
+]
 
 [build-system]
 requires = ["setuptools>=65.0"]
@@ -42,4 +45,5 @@ dev = [
     "mypy",
     "pyright",
     "typeguard",
+    "scipy-stubs",
 ]
