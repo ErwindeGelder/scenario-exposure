@@ -7,11 +7,14 @@ requires-python = ">=3.14"
 dependencies = [
     "numpy",
     "scipy",
+    "nflows",
+    "scikit-learn",
 ]
 
 [build-system]
-requires = ["setuptools>=65.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 
 [tool.ruff]
 line-length = 100
@@ -33,6 +36,11 @@ ignore = [
     "F401", # Imported but unused
 ]
 
+[[tool.mypy.overrides]]
+module = ["nflows.*"]
+ignore_missing_imports = true
+
+
 [tool.pytest.ini_options]
 addopts = "-q"
 testpaths = ["tests"]
@@ -45,5 +53,11 @@ dev = [
     "mypy",
     "pyright",
     "typeguard",
+    "scikit-learn-stubs",
     "scipy-stubs",
+]
+
+[project.optional-dependencies]
+demo = [
+    "matplotlib",
 ]

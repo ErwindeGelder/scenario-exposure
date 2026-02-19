@@ -46,7 +46,7 @@ def test_kde_gss() -> None:
     kde_model.fit(np.linspace(1, 3, 10))
     x = np.linspace(-2, 6, 100)
     y = kde_model.density(x)
-    assert 1 - TOLERANCE <= np.trapezoid(y, x) <= 1.0
+    assert -TOLERANCE <= np.trapezoid(y, x) - 1 <= TOLERANCE
 
 
 def test_kde_gss_warnings() -> None:
@@ -65,7 +65,7 @@ def test_alternative_density_estimation() -> None:
     kde_model.fit(np.linspace(0, 3, 100))
     x = np.linspace(-5, 8, 100)
     y = kde_model.density(x)
-    assert 1 - TOLERANCE <= np.trapezoid(y, x) <= 1.0
+    assert -TOLERANCE <= np.trapezoid(y, x) - 1 <= TOLERANCE
 
 
 def test_very_low_loo_score() -> None:

@@ -8,10 +8,13 @@ import numpy as np
 class DensityModel(ABC):
     """Abstract class for density models."""
 
-    def __init__(self) -> None:
-        """Initialize density model."""
+    def __init__(self, seed: int | None = None) -> None:
+        """Initialize density model.
+
+        :param seed: set seed.
+        """
         self._is_fitted = False
-        self.set_seed(None)
+        self.set_seed(seed)
 
     @abstractmethod
     def fit(self, data: np.ndarray | list[float] | list[list[float]]) -> DensityModel:

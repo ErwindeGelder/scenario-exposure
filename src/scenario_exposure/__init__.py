@@ -2,3 +2,4 @@
 
 from .density_model import DensityModel
 from .kde_model import KDEModel
+from .nf_model import NFModel
