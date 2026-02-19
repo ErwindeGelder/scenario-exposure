@@ -21,5 +21,5 @@ There is also functionality to sample from the distributions.
 - **Run tests:**  
 
   ```bash
-  uv run pytest -s --cov=scenario_exposure --typeguard-packages=scenario_exposure
+  uv run pytest -s --cov=scenario_exposure --cov-report=term-missing --typeguard-packages=scenario_exposure
   ```
