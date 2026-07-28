@@ -71,6 +71,7 @@ class KDEModel(DensityModel):
             self.data_helpers.std = np.minimum(
                 np.std(self.data, axis=0), scipy.stats.iqr(self.data, axis=0) / 1.349
             )
+            self.data /= self.data_helpers.std
 
         if bandwidth is None:
             if silverman:
@@ -84,8 +85,7 @@ class KDEModel(DensityModel):
         return self
 
     def _set_data(self, data: np.ndarray | list[float] | list[list[float]]) -> None:
-        if isinstance(data, list):
-            data = np.array(data)
+        data = np.array(data) if isinstance(data, list) else data.copy()
         if len(data.shape) == 1:
             data = data[:, np.newaxis]
         self.constants.ndata = data.shape[0]
