@@ -3,6 +3,18 @@
 Library for calculating probability density function using various ways.
 There is also functionality to sample from the distributions.
 
+## Example
+
+An example script demonstrating how to use the `KDEModel` and `NFModel` classes is
+provided in [`example_kde_nf_comparison.py`](example_kde_nf_comparison.py). It samples
+points (100, 500, and 2000) from a standard 2D distribution and estimates the density
+using both Kernel Density Estimation (KDE) and Normalizing Flows (NF), plotting the
+results for comparison. Run it with:
+
+```bash
+uv run example_kde_nf_comparison.py
+```
+
 ## Contributing
 
 - **Run linter:**  
