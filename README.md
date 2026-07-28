@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="Scenario exposure logo" width="400" />
+</p>
+
 # Scenario exposure
 
 Library for calculating probability density function using various ways.
